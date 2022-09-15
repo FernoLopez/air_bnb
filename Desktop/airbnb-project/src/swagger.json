@@ -1,0 +1,375 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API Rest Clon de Airbnb",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/users": {
+            "get": {
+                "description": "Get All Users",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid value"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{id}": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Get User By ID",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid value"
+                    }
+                }
+            },
+            "put": {
+                "description": "Update my user",
+                "tags": ["Users", "v1"],
+                "parameters":[
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Data object that needs to be added to the info",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                        }
+                }
+            },
+            "delete": {
+                "description": "Delete my user",
+                "tags": ["Users", "v1"],
+                "parameters":[
+                    {
+                        "name": "api_key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                        },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Data object that needs to be added to the info",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid value"
+                    }
+                }
+        }
+    },
+        "/api/v1/users/me": {
+            "get": {
+                "description": "Get my user",
+                "tags": ["Users", "v1"],
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid value"
+                    }
+                }
+            },
+        
+            "put": {
+                "description": "Update my user",
+                "tags": ["Users", "v1"],
+                "parameters":[
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Data object that needs to be added to the info",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                        }
+                }
+            },
+            "delete": {
+                "description": "Delete my user",
+                "tags": ["Users", "v1"],
+                "parameters":[
+                    {
+                        "name": "api_key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                        },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Data object that needs to be added to the info",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid value"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/login": {
+            "post": {
+                "description": "Get All Users",
+                "tags": ["Login", "v1"],
+                "parameters":[
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "The email for login",
+                        "required": true,
+                        "type": "string"
+                    },
+                        {
+                            "name": "password",
+                            "in": "query",
+                            "description": "The password for login",
+                            "required": true,
+                            "type": "string"
+                        }
+                ],
+                
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid value"
+                    }
+                }
+            }
+        },
+    "/api/v1/auth/register": {
+        "post": {
+            "description": "Create a register",
+            "tags": ["Register", "v1"],
+            "parameters":[
+                {
+                    "name": "body",
+                    "in": "body",
+                    "description": "The data object for register",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "201": {
+                    "description": "successful operation"
+                },
+                "400": {
+                    "description": "Invalid value"
+                }
+            }
+        }
+    },
+    "/api/v1/accommodations": {
+        "get": {
+            "description": "Get all accommodations",
+            "tags": ["Accommodations", "v1"],
+            "responses": {
+                "200": {
+                    "description": "successful operation"
+                },
+                "400": {
+                    "description": "Invalid value"
+                }
+            }
+        },
+        "post":{
+            "parameters":[
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "accommodation ID",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "body",
+                    "in": "body",
+                    "description": "The data object for accommodation",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "description": "Create accommodation",
+            "tags": ["Accommodations", "v1"],
+            "responses": {
+                "201": {
+                    "description": "successful operation"
+                },
+                "400": {
+                    "description": "Invalid value"
+                }
+            }
+        }
+    },
+    "/api/v1/accommodations/{id}": {
+        "get":{
+            "parameters":[
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "accommodation ID",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "description": "Get accommodation by ID",
+            "tags": ["Accommodations", "v1"],
+            "responses": {
+                "200": {
+                    "description": "successful operation"
+                },
+                "400": {
+                    "description": "Invalid value"
+                }
+            }
+        },
+        "put": {
+            "description": "Update accommodation",
+            "tags": ["Accommodations", "v1"],
+            "parameters":[
+                {
+                    "name": "body",
+                    "in": "body",
+                    "description": "Data object that needs to be added to the info",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "successful operation"
+                },
+                "400": {
+                    "description": "Invalid ID supplied"
+                },
+                "404": {
+                    "description": "Accommodation not found"
+                    }
+            }
+        },
+        "delete": {
+            "description": "Delete accommodation",
+            "tags": ["Accommodations", "v1"],
+            "parameters":[
+                {
+                    "name": "api_key",
+                    "in": "header",
+                    "required": false,
+                    "type": "string"
+                    },
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "Data object that needs to be added to the info",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "responses": {
+                "204": {
+                    "description": "successful operation"
+                },
+                "400": {
+                    "description": "Invalid value"
+                }
+            }
+        }
+    },
+    "/api/v1/accommodations/{id}/make-reservation": {
+        "post":{
+            "parameters":[
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "accommodation ID",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "body",
+                    "in": "body",
+                    "description": "The data object for reservation",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "description": "Make reservation",
+            "tags": ["Accommodations", "v1"],
+            "responses": {
+                "201": {
+                    "description": "successful operation"
+                },
+                "400": {
+                    "description": "Invalid value"
+                }
+            }
+        }
+    }
+}
+}
+
+    
+
